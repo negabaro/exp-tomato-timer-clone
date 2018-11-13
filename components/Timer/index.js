@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
-
+import Button from '../Button';
 
 class Timer extends Component {
     render(){
@@ -13,7 +13,9 @@ class Timer extends Component {
               </Text>
             </View>
             <View style={styles.lower}>
-              <Text>BUTTON HERE</Text>
+              {/* https://expo.github.io/vector-icons/  */}
+              <Button iconName="play-circle" onPress={() => alert("It works!(play)") } />
+              <Button iconName="stop-circle" onPress={() => alert("It works!(stop)") } />
             </View>
           </View>
         )

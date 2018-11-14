@@ -1,49 +1,15 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar } from 'react-native';
-import Button from '../Button';
+import { connect } from 'react-redux';
+import Timer from './presenter';
 
-class Timer extends Component {
-    render(){
-        return(
-          <View style={styles.container}>
-            <StatusBar barStyle={"light-content"} />
-            <View style={styles.upper}>
-              <Text style={styles.time}>
-                25:00
-              </Text>
-            </View>
-            <View style={styles.lower}>
-              {/* https://expo.github.io/vector-icons/  */}
-              <Button iconName="play-circle" onPress={() => alert("It works!(play)") } />
-              <Button iconName="stop-circle" onPress={() => alert("It works!(stop)") } />
-            </View>
-          </View>
-        )
-    }
-    
+
+//스테이트에서 데이터를 가져옴
+function mapStateToProps22(state) {
+    const { isPlaying, elapsedTime, timerDuration } = state;
+    return {
+      isPlaying,
+      elapsedTime,
+      timerDuration
+    };
 }
 
-const styles = StyleSheet.create({
-   container: {
-      flex: 1,
-      backgroundColor: "red"
-   },
-   lower: {
-       flex: 1,
-       justifyContent: "center",
-       alignItems: "center"
-   },
-   upper: {
-       flex: 2,
-       justifyContent: "center",
-       alignItems: "center"
-   },
-   time: {
-       color: "white",
-       fontSize: 120,
-       fontWeight: "100"
-   }
-});
-
-
-export default Timer;
+export default connect(mapStateToProps22)(Timer);

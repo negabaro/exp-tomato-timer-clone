@@ -20,7 +20,8 @@ function mapDispatchToProps22(dispatch) {
   return {
     startTimer22: bindActionCreators(TomatoActions.startTimer, dispatch),
     restartTimer22: bindActionCreators(TomatoActions.restartTimer, dispatch),
-    stopTimer22: bindActionCreators(TomatoActions.stopTimer, dispatch)
+    stopTimer22: bindActionCreators(TomatoActions.stopTimer, dispatch),
+    addSecond: bindActionCreators(TomatoActions.addSecond, dispatch),
   };
 }
 

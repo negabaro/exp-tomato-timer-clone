@@ -4,7 +4,7 @@ import Button from '../Button';
 
 class Timer extends Component {
     render(){
-        const { isPlaying, elapsedTime, timerDuration } = this.props;
+        //const { isPlaying, elapsedTime, timerDuration } = this.props;
         console.log('Timer this.props:');
         console.log(this.props);
         return(
@@ -21,8 +21,8 @@ class Timer extends Component {
               {/* null은 무효값이므로 &&로 대체 가능?? */}
               {/* isPlaying ? {} : null */}
               {/* isPlaying && {}  */}
-              { isPlaying &&<Button iconName="play-circle" onPress={() => alert("It works!(play)") } /> }
-              { !isPlaying &&<Button iconName="stop-circle" onPress={() => alert("It works!(stop)") } /> }
+              <Button iconName="play-circle" onPress={() => alert("It works!(play)") } />
+              <Button iconName="stop-circle" onPress={() => alert("It works!(stop)") } />
             </View>
           </View>
         )

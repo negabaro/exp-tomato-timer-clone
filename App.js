@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Timer from './components/Timer';
+//import Timer from './components/Timer/presenter';
 import reducer22 from "./reducer";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -15,8 +16,7 @@ console.log(store22.getState());
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store22} >
-        {/* provider덕분에 타이머가 복사할 수 있는 스토어가 생김. (타이머가 store와 연결된다는 뜻) = provider는 자동으로 state를 복사하기 때문  */}
+      <Provider store={store22}>
         <Timer />
       </Provider>
     );

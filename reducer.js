@@ -7,6 +7,7 @@
 const START_TIMER = "START_TIMER";
 const RESTART_TIMER ="RESTART_TIMER";
 const ADD_SECOND = "ADD_SECOND";
+const STOP_TIMER ="STOP_TIMER";
 
 //3. Action Creators 정의 
 //액션 크리에이터라고 불리우는 이유는 이와 같이 액션을 만들기때문이야..
@@ -29,6 +30,12 @@ function addSecond() {
     }
 }
 
+function stopTimer(){
+    return {
+        type: STOP_TIMER
+    }
+}
+
 //4. Reducer
 const TIMER_DURATION = 1500;
 
@@ -42,6 +49,9 @@ const initialState = {
 //액션을 보낼때마다 리덕스는 자동으로 리듀서를 실행
 //리덕스는 자동으로 액션을 리듀서로 보냄(액션 -> 리듀서)
 function reducer22(state = initialState, action){
+    console.log("reducer:");
+    console.log(action.type);
+    console.log(state);
     switch(action.type){
         case START_TIMER:
             return applyStartTimer(state);
@@ -49,6 +59,8 @@ function reducer22(state = initialState, action){
             return applyRestartTimer(state);
         case ADD_SECOND:
             return applyAddSecond(state);
+        case STOP_TIMER:
+            return applyStopTimer(state);
         default:
             return state;
         
@@ -81,6 +93,7 @@ function applyStopTimer(state){
     }
 }
 
+
 function applyAddSecond(state) {
     const { elapsedTime } = state;
     //elapsedTime가 TIMER_DURATION(1500)보다 작으면 +1해줌(1초씩 증가)
@@ -107,9 +120,13 @@ function applyAddSecond(state) {
 const actionCreators = {
     startTimer,
     restartTimer,
+    stopTimer,
     addSecond
 }
 
+export { actionCreators };
 //7. Export Reducer
 
+
 export default reducer22;
+

@@ -4,9 +4,10 @@ import Button from '../Button';
 
 class Timer extends Component {
     render(){
-        const { isPlaying, elapsedTime, timerDuration } = this.props;
+        const { isPlaying, elapsedTime, timerDuration, restartTimer22, startTimer22, stopTimer22  } = this.props;
         console.log('Timer this.props:');
         console.log(this.props);
+        console.log(isPlaying);
         return(
           <View style={styles.container}>
             <StatusBar barStyle={"light-content"} />
@@ -17,12 +18,11 @@ class Timer extends Component {
             </View>
             <View style={styles.lower}>
               {/* https://expo.github.io/vector-icons/  */}
-             
               {/* null은 무효값이므로 &&로 대체 가능?? */}
               {/* isPlaying ? {} : null */}
               {/* isPlaying && {}  */}
-              { isPlaying &&<Button iconName="play-circle" onPress={() => alert("It works!(play)") } /> }
-              { !isPlaying &&<Button iconName="stop-circle" onPress={() => alert("It works!(stop)") } /> }
+              { !isPlaying &&<Button iconName="play-circle" onPress={ startTimer22 } /> }
+              { isPlaying &&<Button iconName="stop-circle" onPress={ stopTimer22 } /> }
             </View>
           </View>
         )

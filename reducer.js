@@ -41,7 +41,7 @@ const initialState = {
 //state가없으면 디폴트로 initalState로 시작.
 //액션을 보낼때마다 리덕스는 자동으로 리듀서를 실행
 //리덕스는 자동으로 액션을 리듀서로 보냄(액션 -> 리듀서)
-function reducer(state = initialState, action){
+function reducer22(state = initialState, action){
     switch(action.type){
         case START_TIMER:
             return applyStartTimer(state);
@@ -112,4 +112,4 @@ const actionCreators = {
 
 //7. Export Reducer
 
-export default reducer;
+export default reducer22;
